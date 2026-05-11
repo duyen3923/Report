@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply m-0 p-0 box-border;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-white text-gray-900 dark:bg-navy-900 dark:text-gray-100 transition-colors duration-300;
+}
+
+::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-navy-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-navy-700 rounded-full hover:bg-gray-400 dark:hover:bg-navy-600;
+}
+
+/* Glass morphism effect */
+.glass-effect {
+  @apply backdrop-blur-xl bg-white/80 dark:bg-navy-800/80 border border-gray-200/20 dark:border-gray-700/20;
+}
+
+/* Smooth transitions */
+.transition-all-smooth {
+  @apply transition-all duration-300 ease-out;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-navy-600 to-navy-400 bg-clip-text text-transparent;
+}
+
+/* Button base styles */
+.btn-base {
+  @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 ease-out active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Card styles */
+.card {
+  @apply glass-effect shadow-soft rounded-2xl p-6 transition-all-smooth hover:shadow-soft-lg;
+}
+
+/* Input styles */
+.input-base {
+  @apply w-full px-4 py-2.5 rounded-lg border border-gray-200 dark:border-navy-700 bg-white dark:bg-navy-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-navy-500 focus:border-transparent transition-all duration-200;
+}
+
+/* Table styles */
+table {
+  @apply w-full border-collapse;
+}
+
+thead {
+  @apply bg-gray-50 dark:bg-navy-800 border-b border-gray-200 dark:border-navy-700;
+}
+
+th {
+  @apply px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300;
+}
+
+tbody tr {
+  @apply border-b border-gray-200 dark:border-navy-700 transition-colors hover:bg-gray-50 dark:hover:bg-navy-800/50;
+}
+
+td {
+  @apply px-6 py-4 text-sm text-gray-900 dark:text-gray-100;
+}
+
+/* Loading skeleton */
+.skeleton {
+  @apply animate-pulse bg-gray-200 dark:bg-navy-700 rounded-lg;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-in {
+  animation: slideInDown 0.4s ease-out;
+}
