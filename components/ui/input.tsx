@@ -21,7 +21,7 @@ export function Input({
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <label className="block text-sm font-medium text-slate-700 mb-2">
           {label}
         </label>
       )}
@@ -40,7 +40,7 @@ export function Input({
       </div>
       {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
       {helperText && !error && (
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+        <p className="text-sm text-slate-500 mt-1">
           {helperText}
         </p>
       )}

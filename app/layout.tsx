@@ -28,11 +28,11 @@ export default function RootLayout({
           ${inter.variable}
           font-sans
           antialiased
-          bg-background
-          text-foreground
+          bg-white
+          text-slate-900
         `}
       >
-        <div className="flex h-screen overflow-hidden bg-[#f8fafc] dark:bg-[#0f172a]">
+        <div className="flex h-screen overflow-hidden bg-white">
           
           {/* Sidebar */}
           <Sidebar />
@@ -48,31 +48,18 @@ export default function RootLayout({
               className="
                 flex-1
                 overflow-y-auto
-                bg-gradient-to-br
-                from-white
-                via-slate-50
-                to-slate-100
-                dark:from-slate-950
-                dark:via-slate-900
-                dark:to-slate-950
+                bg-white
                 p-4
                 md:p-6
-                transition-all
-                duration-300
               "
             >
               <div
                 className="
-                  h-full
-                  rounded-3xl
-                  border
-                  border-white/20
-                  bg-white/60
-                  dark:bg-white/5
-                  backdrop-blur-xl
-                  shadow-[0_8px_30px_rgb(0,0,0,0.06)]
+                  min-h-full
+                  rounded-2xl
+                  bg-white
                   p-4
-                  md:p-6
+                  md:p-8
                 "
               >
                 {children}

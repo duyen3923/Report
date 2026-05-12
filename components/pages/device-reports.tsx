@@ -74,7 +74,7 @@ export function DeviceReports() {
     key: keyof DeviceReport
     direction: 'asc' | 'desc'
   } | null>(null)
-  const { success, error } = useToast()
+  const { success } = useToast()
 
   const units = ['A', 'B', 'C', 'D']
   const people = Array.from(new Set(reports.map((r) => r.personInCharge)))
@@ -103,9 +103,11 @@ export function DeviceReports() {
             : (bValue as string).localeCompare(aValue)
         }
 
+        const aNum = Number(aValue)
+        const bNum = Number(bValue)
         return sortConfig.direction === 'asc'
-          ? (aValue as number) - (bValue as number)
-          : (bValue as number) - (aValue as number)
+          ? aNum - bNum
+          : bNum - aNum
       })
     }
 
@@ -178,10 +180,10 @@ export function DeviceReports() {
     >
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">
           Device Reports
         </h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-slate-600">
           Manage and track device maintenance reports
         </p>
       </div>
@@ -224,7 +226,7 @@ export function DeviceReports() {
             </Button>
           </div>
         </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-slate-500">
           {filteredAndSortedReports.length} report{filteredAndSortedReports.length !== 1 ? 's' : ''} found
         </p>
       </Card>

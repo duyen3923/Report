@@ -26,13 +26,13 @@ export function Button({
 
   const variants = {
     primary:
-      'bg-navy-500 text-white hover:bg-navy-600 active:bg-navy-700 shadow-soft hover:shadow-soft-lg',
+      'bg-red-500 text-white hover:bg-red-600 active:bg-red-700 shadow-soft hover:shadow-soft-lg',
     secondary:
-      'bg-gray-100 dark:bg-navy-800 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-navy-700',
+      'bg-slate-100 text-slate-900 hover:bg-slate-200',
     outline:
-      'border-2 border-gray-200 dark:border-navy-700 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-navy-800',
+      'border-2 border-slate-200 text-slate-900 hover:bg-slate-50',
     ghost:
-      'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-navy-800',
+      'text-slate-600 hover:bg-slate-100',
   }
 
   const sizes = {

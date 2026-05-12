@@ -44,7 +44,7 @@ export function Sidebar() {
       initial={{ width: 280 }}
       animate={{ width: isCollapsed ? 80 : 280 }}
       transition={{ duration: 0.3 }}
-      className="glass-effect border-r border-gray-200 dark:border-navy-700 flex flex-col py-6 px-4"
+      className="bg-white border-r border-gray-100 flex flex-col py-6 px-4 shadow-sm"
     >
       {/* Logo */}
       <div className="flex items-center justify-between mb-8 px-2">
@@ -53,20 +53,20 @@ export function Sidebar() {
           transition={{ duration: 0.2 }}
           className="flex items-center gap-3"
         >
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-navy-500 to-navy-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center">
             <Cpu className="w-6 h-6 text-white" />
           </div>
           <div className="flex flex-col">
-            <h1 className="text-sm font-bold text-navy-900 dark:text-white">Report</h1>
-            <p className="text-xs text-gray-500 dark:text-gray-400">System</p>
+            <h1 className="text-sm font-bold text-slate-900">Report</h1>
+            <p className="text-xs text-slate-500">System</p>
           </div>
         </motion.div>
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className="p-1.5 hover:bg-gray-100 dark:hover:bg-navy-700 rounded-lg transition-colors"
+          className="p-1.5 hover:bg-slate-100 rounded-lg transition-colors"
         >
           <ChevronDown
-            className={`w-5 h-5 transition-transform ${
+            className={`w-5 h-5 text-slate-600 transition-transform ${
               isCollapsed ? 'rotate-90' : ''
             }`}
           />
@@ -85,15 +85,15 @@ export function Sidebar() {
                 whileHover={{ x: 4 }}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all ${
                   isActive
-                    ? 'bg-navy-500 text-white shadow-soft'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-navy-800'
+                    ? 'bg-red-50 text-red-700 shadow-soft'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
-                <Icon className="w-5 h-5 flex-shrink-0" />
+                <Icon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-red-600' : 'text-slate-500'}`} />
                 <motion.span
                   animate={{ opacity: isCollapsed ? 0 : 1 }}
                   transition={{ duration: 0.2 }}
-                  className="text-sm font-medium"
+                  className={`text-sm font-medium ${isActive ? 'text-red-700' : 'text-slate-700'}`}
                 >
                   {item.name}
                 </motion.span>
@@ -107,9 +107,9 @@ export function Sidebar() {
       <motion.div
         animate={{ opacity: isCollapsed ? 0 : 1 }}
         transition={{ duration: 0.2 }}
-        className="pt-4 border-t border-gray-200 dark:border-navy-700"
+        className="pt-4 border-t border-gray-100"
       >
-        <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+        <p className="text-xs text-slate-500 text-center">
           v1.0.0
         </p>
       </motion.div>

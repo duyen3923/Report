@@ -10,7 +10,7 @@ import {
   GraduationCap,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 interface DashboardStats {
   totalReports: number
@@ -22,7 +22,7 @@ interface DashboardStats {
 }
 
 export function Dashboard() {
-  const [stats, setStats] = useState<DashboardStats>({
+  const [stats] = useState<DashboardStats>({
     totalReports: 156,
     todayReports: 12,
     mostProblematicDevice: 'TV - Unit A',
@@ -63,7 +63,7 @@ export function Dashboard() {
           Dashboard
         </h1>
         <p className="text-gray-600 dark:text-gray-400">
-          Welcome back! Here's your system overview.
+          Welcome back! Here&apos;s your system overview.
         </p>
       </motion.div>
 

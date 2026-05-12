@@ -21,7 +21,7 @@ export function Card({
       whileHover={hoverable ? { y: -4 } : {}}
       transition={{ duration: 0.2 }}
       onClick={onClick}
-      className={`card ${hoverable ? 'cursor-pointer' : ''} ${className}`}
+      className={`bg-white rounded-2xl p-6 shadow-soft hover:shadow-soft-lg transition-all border border-gray-100 ${hoverable ? 'cursor-pointer' : ''} ${className}`}
     >
       {children}
     </motion.div>
@@ -47,27 +47,25 @@ export function StatsCard({
   color = 'blue',
 }: StatsCardProps) {
   const colorClasses = {
-    blue: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400',
-    green:
-      'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400',
-    red: 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400',
-    purple:
-      'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400',
+    blue: 'bg-blue-100 text-blue-600',
+    green: 'bg-green-100 text-green-600',
+    red: 'bg-red-100 text-red-600',
+    purple: 'bg-purple-100 text-purple-600',
   }
 
   return (
     <Card className="flex items-start justify-between">
       <div className="flex-1">
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{label}</p>
-        <p className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <p className="text-sm text-slate-500 mb-2">{label}</p>
+        <p className="text-2xl font-bold text-slate-900 mb-2">
           {value}
         </p>
         {trend && (
           <p
             className={`text-xs font-medium ${
               trend.direction === 'up'
-                ? 'text-green-600 dark:text-green-400'
-                : 'text-red-600 dark:text-red-400'
+                ? 'text-green-600'
+                : 'text-red-600'
             }`}
           >
             {trend.direction === 'up' ? '↑' : '↓'} {Math.abs(trend.value)}% from

@@ -164,7 +164,7 @@ export default function SettingsPage() {
               </label>
 
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                You'll receive notifications about report updates and system events.
+                You&apos;ll receive notifications about report updates and system events.
               </p>
             </div>
           </Card>

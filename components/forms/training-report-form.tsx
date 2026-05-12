@@ -22,7 +22,7 @@ export function TrainingReportForm({
     trainingContent: initialData?.trainingContent || '',
     trainer: initialData?.trainer || '',
     participants: initialData?.participants || '',
-    trainingTime: initialData?.trainingTime || '',
+    trainingHours: initialData?.trainingHours || '',
     result: initialData?.result || '',
     notes: initialData?.notes || '',
   })
@@ -86,9 +86,9 @@ export function TrainingReportForm({
       <Input
         label="Training Time"
         placeholder="e.g., 09:00:00 11/5/2026"
-        value={formData.trainingTime}
+        value={formData.trainingHours}
         onChange={(e) =>
-          setFormData({ ...formData, trainingTime: e.target.value })
+          setFormData({ ...formData, trainingHours: e.target.value })
         }
       />
 

@@ -46,17 +46,17 @@ export function Modal({
             transition={{ duration: 0.2 }}
             className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 w-full ${sizeClasses[size]} mx-4`}
           >
-            <div className="glass-effect rounded-2xl shadow-soft-lg">
+            <div className="bg-white rounded-2xl shadow-soft-lg border border-gray-100">
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-navy-700">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+              <div className="flex items-center justify-between p-6 border-b border-gray-100">
+                <h2 className="text-lg font-semibold text-slate-900">
                   {title}
                 </h2>
                 <button
                   onClick={onClose}
-                  className="p-1 hover:bg-gray-100 dark:hover:bg-navy-800 rounded-lg transition-colors"
+                  className="p-1 hover:bg-slate-100 rounded-lg transition-colors"
                 >
-                  <X className="w-5 h-5 text-gray-400" />
+                  <X className="w-5 h-5 text-slate-400" />
                 </button>
               </div>
 

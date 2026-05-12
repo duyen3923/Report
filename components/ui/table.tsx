@@ -62,7 +62,7 @@ export function Table<T extends { id: string }>({
   if (data.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-500 dark:text-gray-400">{emptyMessage}</p>
+        <p className="text-slate-500">{emptyMessage}</p>
       </div>
     )
   }
@@ -70,19 +70,19 @@ export function Table<T extends { id: string }>({
   return (
     <div className="overflow-x-auto">
       <table className="w-full">
-        <thead className="bg-gray-50 dark:bg-navy-800 border-b border-gray-200 dark:border-navy-700 sticky top-0">
+        <thead className="bg-white border-b border-gray-100 sticky top-0">
           <tr>
             {columns.map((column) => (
               <th
                 key={String(column.key)}
-                className={`px-6 py-3 text-left text-sm font-semibold text-gray-700 dark:text-gray-300 ${
+                className={`px-6 py-3 text-left text-sm font-semibold text-slate-700 ${
                   column.width || ''
                 }`}
               >
                 {column.sortable ? (
                   <button
                     onClick={() => handleSort(column.key)}
-                    className="flex items-center gap-2 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                    className="flex items-center gap-2 hover:text-slate-900 transition-colors"
                   >
                     {column.label}
                     {getSortIcon(column.key)}
@@ -93,7 +93,7 @@ export function Table<T extends { id: string }>({
               </th>
             ))}
             {(onEdit || onDelete) && (
-              <th className="px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-300">
+              <th className="px-6 py-3 text-sm font-semibold text-slate-700">
                 Actions
               </th>
             )}
@@ -106,12 +106,12 @@ export function Table<T extends { id: string }>({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: idx * 0.05 }}
-              className="border-b border-gray-200 dark:border-navy-700 hover:bg-gray-50 dark:hover:bg-navy-800/50 transition-colors"
+              className="border-b border-gray-100 hover:bg-red-50/30 transition-colors"
             >
               {columns.map((column) => (
                 <td
                   key={`${row.id}-${String(column.key)}`}
-                  className={`px-6 py-4 text-sm text-gray-900 dark:text-gray-100 ${
+                  className={`px-6 py-4 text-sm text-slate-900 ${
                     column.width || ''
                   }`}
                 >
@@ -128,7 +128,7 @@ export function Table<T extends { id: string }>({
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => onEdit(row)}
-                        className="p-1.5 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg transition-colors text-blue-600 dark:text-blue-400"
+                        className="p-1.5 hover:bg-blue-100 rounded-lg transition-colors text-blue-600"
                       >
                         <Edit2 className="w-4 h-4" />
                       </motion.button>
@@ -138,7 +138,7 @@ export function Table<T extends { id: string }>({
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => onDelete(row)}
-                        className="p-1.5 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors text-red-600 dark:text-red-400"
+                        className="p-1.5 hover:bg-red-100 rounded-lg transition-colors text-red-600"
                       >
                         <Trash2 className="w-4 h-4" />
                       </motion.button>

@@ -48,22 +48,22 @@ export function Select({
   return (
     <div className="w-full" ref={containerRef}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <label className="block text-sm font-medium text-slate-700 mb-2">
           {label}
         </label>
       )}
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`input-base flex items-center justify-between bg-white dark:bg-navy-800 ${
+          className={`input-base flex items-center justify-between bg-white ${
             error ? 'border-red-500 focus:ring-red-500' : ''
           }`}
         >
-          <span className={selectedOption ? 'text-gray-900 dark:text-gray-100' : 'text-gray-500 dark:text-gray-400'}>
+          <span className={selectedOption ? 'text-slate-900' : 'text-slate-500'}>
             {selectedOption?.label || placeholder}
           </span>
           <ChevronDown
-            className={`w-4 h-4 text-gray-400 transition-transform ${
+            className={`w-4 h-4 text-slate-400 transition-transform ${
               isOpen ? 'rotate-180' : ''
             }`}
           />
@@ -75,7 +75,7 @@ export function Select({
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-navy-800 border border-gray-200 dark:border-navy-700 rounded-lg shadow-soft-lg z-10"
+              className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-lg shadow-soft-lg z-10"
             >
               <div className="max-h-60 overflow-y-auto">
                 {options.map((option) => (
@@ -87,8 +87,8 @@ export function Select({
                     }}
                     className={`w-full px-4 py-2.5 text-left text-sm transition-colors ${
                       value === option.value
-                        ? 'bg-navy-500 text-white'
-                        : 'text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-navy-700'
+                        ? 'bg-red-500 text-white'
+                        : 'text-slate-900 hover:bg-slate-50'
                     }`}
                   >
                     {option.label}

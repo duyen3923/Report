@@ -19,7 +19,7 @@ export interface TrainingReport {
   trainingContent: string
   trainer: string
   participants: string
-  trainingTime: string
+  trainingHours: string
   result: string
   notes: string
   createdAt: string
@@ -32,7 +32,7 @@ const mockTrainingReports: TrainingReport[] = [
     trainingContent: 'Safety Procedures',
     trainer: 'John Doe',
     participants: '15',
-    trainingTime: '09:00:00 11/5/2026',
+    trainingHours: '2 hours',
     result: 'Completed',
     notes: 'All participants passed the exam',
     createdAt: '2026-05-11',
@@ -43,7 +43,7 @@ const mockTrainingReports: TrainingReport[] = [
     trainingContent: 'System Basics',
     trainer: 'Jane Smith',
     participants: '12',
-    trainingTime: '14:00:00 11/5/2026',
+    trainingHours: '3 hours',
     result: 'Completed',
     notes: 'Excellent participation',
     createdAt: '2026-05-11',
@@ -54,7 +54,7 @@ const mockTrainingReports: TrainingReport[] = [
     trainingContent: 'Advanced Features',
     trainer: 'Mike Johnson',
     participants: '8',
-    trainingTime: '10:30:00 11/4/2026',
+    trainingHours: '1 hour',
     result: 'In Progress',
     notes: 'Hands-on session',
     createdAt: '2026-05-10',
@@ -103,9 +103,11 @@ export function TrainingReports() {
             : (bValue as string).localeCompare(aValue)
         }
 
+        const aNum = Number(aValue)
+        const bNum = Number(bValue)
         return sortConfig.direction === 'asc'
-          ? (aValue as number) - (bValue as number)
-          : (bValue as number) - (aValue as number)
+          ? aNum - bNum
+          : bNum - aNum
       })
     }
 
@@ -144,9 +146,9 @@ export function TrainingReports() {
 
   const handleExport = () => {
     const csv = [
-      ['Unit', 'Training Content', 'Trainer', 'Participants', 'Training Time', 'Result', 'Notes'].join(','),
+      ['Unit', 'Training Content', 'Trainer', 'Participants', 'Training Hours', 'Result', 'Notes'].join(','),
       ...filteredAndSortedReports.map((r) =>
-        [r.unit, r.trainingContent, r.trainer, r.participants, r.trainingTime, r.result, r.notes].join(',')
+        [r.unit, r.trainingContent, r.trainer, r.participants, r.trainingHours, r.result, r.notes].join(',')
       ),
     ].join('\n')
 
@@ -164,13 +166,13 @@ export function TrainingReports() {
     { key: 'trainingContent', label: 'Training Content', sortable: true },
     { key: 'trainer', label: 'Trainer', sortable: true },
     { key: 'participants', label: 'Participants', sortable: true, width: 'w-24' },
-    { key: 'trainingTime', label: 'Training Time', sortable: true },
+    { key: 'trainingHours', label: 'Training Hours', sortable: true },
     { key: 'result', label: 'Result', sortable: true },
     {
       key: 'notes',
       label: 'Notes',
       render: (value) => (
-        <span className="text-gray-600 dark:text-gray-400 truncate max-w-xs">
+        <span className="text-slate-600 truncate max-w-xs">
           {value}
         </span>
       ),
@@ -186,10 +188,10 @@ export function TrainingReports() {
     >
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">
           Training Reports
         </h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-slate-600">
           Track and manage training sessions
         </p>
       </div>
@@ -232,7 +234,7 @@ export function TrainingReports() {
             </Button>
           </div>
         </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400">
+        <p className="text-sm text-slate-500">
           {filteredAndSortedReports.length} report{filteredAndSortedReports.length !== 1 ? 's' : ''} found
         </p>
       </Card>
